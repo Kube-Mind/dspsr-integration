@@ -7,16 +7,13 @@
   "labels": [
     "dependencies"
   ],
-  "helm-values": {
-    "managerFilePatterns": ["**/values.yaml"]
-  },
   "packageRules": [
     {
       "matchManagers": [
         "dockerfile",
         "regex"
       ],
-      "groupName": "chore(deps): update submodules"
+      "groupName": "chore(deps): update oci and submodules"
     }
   ],
   "customManagers": [
