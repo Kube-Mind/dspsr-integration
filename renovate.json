@@ -8,11 +8,15 @@
   "labels": [
     "dependencies"
   ],
+  "enabledManagers": [
+    "dockerfile",
+    "custom.regex"
+  ],
   "packageRules": [
     {
       "matchManagers": [
         "dockerfile",
-        "regex"
+        "custom.regex"
       ],
       "groupName": "chore(deps): update oci and submodules",
       "matchUpdateTypes": ["major", "minor", "patch", "digest"]
