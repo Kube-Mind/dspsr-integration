@@ -1,7 +1,7 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:recommended"
+    "config:base"
   ],
   "dependencyDashboard": true,
   "labels": [
@@ -13,7 +13,8 @@
         "dockerfile",
         "regex"
       ],
-      "groupName": "chore(deps): update oci and submodules"
+      "groupName": "chore(deps): update oci and submodules",
+      "matchUpdateTypes": ["major", "minor", "patch", "digest"]
     }
   ],
   "customManagers": [
