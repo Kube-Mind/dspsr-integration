@@ -3,8 +3,7 @@
   "extends": [
     "config:recommended",
     ":rebaseStalePrs",
-    "docker:enableMajor",
-    "regex:enableMajor",
+    ":enableMajor",
     "mergeConfidence:all-badges"
   ],
   "dependencyDashboard": true,
