@@ -24,7 +24,7 @@
       "customType": "regex",
       "managerFilePatterns": ["submodules.json"],
       "matchStrings": [
-        "\"(?<depName>[^\"]+)\"\\s*:\\s*\\{[^}]*?\"url\"\\s*:\\s*\"(?<registryUrl>https?://[^\"]+)\"[^}]*?\"tag\"\\s*:\\s*\"(?<currentValue>[^\"]+)\""
+        "\"(?<depName>[^\"]+)\"\\s*:\\s*\\{[\\s\\S]*?\"url\"\\s*:\\s*\"(?<registryUrl>https?://[^\"]+)\"[\\s\\S]*?\"tag\"\\s*:\\s*\"(?<currentValue>[^\"]+)\""
       ],
       "depNameTemplate": "{{depName}}",
       "datasourceTemplate": "git-tags",
