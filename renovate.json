@@ -21,24 +21,13 @@
   ],
   "customManagers": [
     {
-    "customType": "regex",
-    "managerFilePatterns": ["submodules.json"],
-
-    "matchStrings": [
-      "\"[^\"]+\"\\s*:\\s*\\{[\\s\\S]*?\"url\"\\s*:\\s*\"(?<depName>https://git\\.code\\.sf\\.net/p/[^\"]+/code)\"[\\s\\S]*?\"tag\"\\s*:\\s*\"(?<currentValue>[a-f0-9]{40})\""
-    ],
-    "datasourceTemplate": "git-refs",
-    "versioningTemplate": "loose"
-  },
-  {
-    "customType": "regex",
-    "managerFilePatterns": ["submodules.json"],
-    
-    "matchStrings": [
-      "\"[^\"]+\"\\s*:\\s*\\{[\\s\\S]*?\"url\"\\s*:\\s*\"(?<depName>https://git\\.code\\.sf\\.net/p/[^\"]+/code)\"[\\s\\S]*?\"tag\"\\s*:\\s*\"(?<currentValue>\\d{4}-\\d{2}-\\d{2})\""
-    ],
-    "datasourceTemplate": "git-tags",
-    "versioningTemplate": "loose"
-  }
+      "customType": "regex",
+      "managerFilePatterns": ["submodules.json"],
+      "matchStrings": [
+        "\"[^\"]+\"\\s*:\\s*\\{[\\s\\S]*?\"url\"\\s*:\\s*\"(?<depName>https://git\\.code\\.sf\\.net/p/[^\"]+/code)\"[\\s\\S]*?\"tag\"\\s*:\\s*\"(?<currentValue>[^\"]+)\""
+      ],
+      "datasourceTemplate": "git-refs",
+      "versioningTemplate": "loose"
+    }
   ]
 }
