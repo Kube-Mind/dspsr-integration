@@ -3,6 +3,7 @@
   "extends": [
     "config:recommended",
     ":rebaseStalePrs",
+    "custom.regex:enableMajor",
     "mergeConfidence:all-badges"
   ],
   "dependencyDashboard": true,
@@ -27,7 +28,7 @@
       "matchStrings": [
         "\"[^\"]+\"\\s*:\\s*\\{[\\s\\S]*?\"url\"\\s*:\\s*\"(?<depName>https://git\\.code\\.sf\\.net/p/[^\"]+/code)\"[\\s\\S]*?\"tag\"\\s*:\\s*\"(?<currentValue>\\d{4}-\\d{2}-\\d{2})\""
       ],
-      "datasourceTemplate": "git-tags",
+      "datasourceTemplate": "git-refs",
       "versioningTemplate": "loose"
     }
   ]
