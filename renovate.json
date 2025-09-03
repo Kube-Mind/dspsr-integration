@@ -3,7 +3,6 @@
   "extends": [
     "config:recommended",
     ":rebaseStalePrs",
-    "custom.regex:enableMajor",
     "mergeConfidence:all-badges"
   ],
   "dependencyDashboard": true,
@@ -16,7 +15,8 @@
         "dockerfile",
         "custom.regex"
       ],
-      "groupName": "chore(deps): update oci and submodules"
+      "groupName": "chore(deps): update oci and submodules",
+      "matchUpdateTypes": ["major", "minor", "patch", "digest"]
     }
   ],
   "customManagers": [
