@@ -1,0 +1,9 @@
+[submodule "resources/psrchive"]
+	path = resources/psrchive
+	url = https://git.code.sf.net/p/psrchive/code
+[submodule "resources/dspsr"]
+	path = resources/dspsr
+	url = https://git.code.sf.net/p/dspsr/code
+[submodule "resources/psrdada"]
+	path = resources/psrdada
+	url = https://git.code.sf.net/p/psrdada/code
