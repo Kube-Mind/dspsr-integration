@@ -18,7 +18,7 @@ jobs:
       - name: Checkout PR branch
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          fetch-depth: 3
           ref: ${{ github.head_ref }}  # ensures we’re on the PR branch
           token: ${{ secrets.GITHUB_TOKEN }}  # needed to push back
 
