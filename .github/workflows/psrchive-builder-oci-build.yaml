@@ -40,6 +40,6 @@ jobs:
                 \"repo\": \"${{ github.server_url }}/${{ github.repository }}.git\",
                 \"branch\": \"main\",
                 \"dockerfile\": \"images/${{ env.OCI_IMAGE_NAME }}\",
-                \"image\": \"${{ env.OCI_REGISTRY }}/sd-${{ env.OCI_IMAGE_NAME }}:${OCI_IMAGE_TAG}\",
+                \"image\": \"${{ env.OCI_REGISTRY }}/${{ env.OCI_IMAGE_NAME }}:${OCI_IMAGE_TAG}\",
                 \"context\": \"./\"
               }"
