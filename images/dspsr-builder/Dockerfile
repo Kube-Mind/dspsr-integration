@@ -1,4 +1,4 @@
-ARG DSPSR_BASE_IMAGE="ocr.jcan.dev/library/psrchive:latest"
+ARG DSPSR_BASE_IMAGE="ocr.jcan.dev/library/psrchive:2024-12-02"
 FROM $DSPSR_BASE_IMAGE AS base
 
 ENV DEBIAN_FRONTEND=noninteractive
