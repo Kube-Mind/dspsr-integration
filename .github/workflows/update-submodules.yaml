@@ -18,9 +18,11 @@ jobs:
       - name: Checkout PR branch
         uses: actions/checkout@v4
         with:
-          fetch-depth: 3
-          ref: ${{ github.head_ref }}  # ensures we’re on the PR branch
-          token: ${{ secrets.GITHUB_TOKEN }}  # needed to push back
+          ref: ${{ github.head_ref }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0            # get full history of parent repo
+          submodules: recursive     # also fetch submodules
+          set-safe-directory: true
 
       - name: Configure Git user
         run: |
