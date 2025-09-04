@@ -1,0 +1,43 @@
+name: Update Submodules
+
+on:
+  pull_request:
+    branches: [ "main" ]
+    paths:
+      - "submodules.json"
+
+jobs:
+  update-submodules:
+    runs-on:
+      group: homelab
+      labels: ghar-scale-set
+    container:
+      image: ghcr.io/actions/actions-runner:2.328.0
+ 
+    steps:
+      - name: Checkout PR branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.head_ref }}  # ensures we’re on the PR branch
+          token: ${{ secrets.GITHUB_TOKEN }}  # needed to push back
+
+      - name: Configure Git user
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Run update-submodule.sh
+        run: |
+          chmod +x ./update-submodule.sh
+          ./update-submodule.sh
+
+      - name: Commit and push changes
+        run: |
+          if [[ -n "$(git status --porcelain resources)" ]]; then
+            git add resources/*
+            git commit -m "ci: update submodules"
+            git push origin HEAD:${{ github.head_ref }}
+          else
+            echo "No submodule updates detected."
+          fi
