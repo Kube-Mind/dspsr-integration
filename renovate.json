@@ -18,7 +18,9 @@
         "dockerfile",
         "custom.regex"
       ],
+      "matchDatasources": ["git-refs"],
       "groupName": "chore(deps): update oci and submodules",
+      "groupSlug": "oci-submodules",
       "matchUpdateTypes": ["major", "minor", "patch", "digest"]
     }
   ],
