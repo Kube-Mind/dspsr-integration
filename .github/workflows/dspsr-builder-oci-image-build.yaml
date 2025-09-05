@@ -1,6 +1,10 @@
 name: OCI DSPSR builder image build
 
 on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - "resources/dspsr"
   pull_request:
     branches: [ "main" ]
     paths:
