@@ -1,4 +1,4 @@
-ARG SKA_PST_BUILDTOOLS_BASE_IMAGE="harbor.skao.int/production/ska-build-cuda:0.2.1"
+ARG SKA_PST_BUILDTOOLS_BASE_IMAGE="harbor.skao.int/production/ska-build-cuda:0.2.0"
 
 FROM $SKA_PST_BUILDTOOLS_BASE_IMAGE AS base
 
