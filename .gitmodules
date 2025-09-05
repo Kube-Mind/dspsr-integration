@@ -1,12 +1,12 @@
 [submodule "resources/psrchive"]
 	path = resources/psrchive
-	url = https://git.code.sf.net/p/psrchive/code
+	url = https://git.code.sf.net/p/psrchive/code.git
 	branch = 03f4d478f8bca6a8ca51ec6a853386e948732f81
 [submodule "resources/dspsr"]
 	path = resources/dspsr
-	url = https://git.code.sf.net/p/dspsr/code
+	url = https://git.code.sf.net/p/dspsr/code.git
 	branch = 2025-07-16
 [submodule "resources/psrdada"]
 	path = resources/psrdada
-	url = https://git.code.sf.net/p/psrdada/code
-	branch = 2025-07-16
+	url = https://git.code.sf.net/p/psrdada/code.git
+	branch = 2024-12-02
