@@ -9,7 +9,8 @@
     "dependencies"
   ],
   "git-submodules": {
-    "enabled": true
+    "enabled": true,
+    "datasourceTemplate": "git-tags"
   },
   "enabledManagers": [
     "dockerfile",
