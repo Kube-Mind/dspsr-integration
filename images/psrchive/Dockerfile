@@ -1,4 +1,4 @@
-ARG PSRCHIVE_BASE_IMAGE="ocr.jcan.dev/library/psrchive-builder:2025-07-16"
+ARG PSRCHIVE_BASE_IMAGE="ocr.jcan.dev/library/psrchive-builder:2025.07.16-00.00"
 FROM $PSRCHIVE_BASE_IMAGE AS base
 
 ARG UID=1000
