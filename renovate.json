@@ -10,7 +10,7 @@
   ],
   "git-submodules": {
     "enabled": true,
-    "datasourceTemplate": "git-tags"
+    "hostType": "git-tags"
   },
   "enabledManagers": [
     "dockerfile",
