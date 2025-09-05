@@ -8,32 +8,22 @@
   "labels": [
     "dependencies"
   ],
+  "git-submodules": {
+    "enabled": true
+  },
   "enabledManagers": [
     "dockerfile",
-    "regex"
+    "git-submodules"
   ],
   "packageRules": [
     {
       "matchManagers": [
         "dockerfile",
-        "regex"
+        "git-submodules"
       ],
       "matchDatasources": ["git-refs"],
       "groupName": "chore(deps): update oci and submodules",
       "groupSlug": "oci-submodules"
-    }
-  ],
-  "customManagers": [
-    {
-      "customType": "regex",
-      "managerFilePatterns": [
-        "submodules.json"
-      ],
-      "matchStrings": [
-        "\"[^\"]+\"\\s*:\\s*\\{[\\s\\S]*?\"url\"\\s*:\\s*\"(?<depName>https://git\\.code\\.sf\\.net/p/[^\"]+/code)\"[\\s\\S]*?\"tag\"\\s*:\\s*\"(?<currentValue>[^\"]+)\""
-      ],
-      "datasourceTemplate": "git-refs",
-      "versioningTemplate": "loose"
     }
   ]
 }
