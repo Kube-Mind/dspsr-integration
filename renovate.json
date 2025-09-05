@@ -21,7 +21,7 @@
         "dockerfile",
         "git-submodules"
       ],
-      "matchDatasources": ["git-refs"],
+      "matchDatasources": ["git-refs", "git-tags", "dockerfile"],
       "groupName": "chore(deps): update oci and submodules",
       "groupSlug": "oci-submodules"
     }
