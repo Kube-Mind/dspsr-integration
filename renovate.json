@@ -9,8 +9,7 @@
     "dependencies"
   ],
   "git-submodules": {
-    "enabled": true,
-    "hostType": "git-tags"
+    "enabled": true
   },
   "enabledManagers": [
     "dockerfile",
@@ -19,12 +18,12 @@
   "packageRules": [
     {
       "matchManagers": [
-        "dockerfile",
         "git-submodules"
       ],
       "matchDatasources": ["git-refs", "git-tags", "dockerfile"],
       "groupName": "chore(deps): update oci and submodules",
-      "groupSlug": "oci-submodules"
+      "groupSlug": "oci-submodules",
+      "versioning": "loose"
     }
   ]
 }
