@@ -69,10 +69,9 @@ FROM base AS base-runtime
 COPY ./images/psrchive-builder/pst-builder.conf /etc/ld.so.conf.d/
 
 # Install runtime dependencies, build artefacts
-RUN --mount=type=bind,from=base-builder,target=/builder \
-    cp -rd /builder/usr/local/psrdada /usr/local/psrdada \
-    && cp -rd /builder/usr/local/googletest /usr/local/googletest \
-    && ldconfig
+COPY --from=base-builder /builder/usr/local/psrdada /usr/local/psrdada
+COPY --from=base-builder /builder/usr/local/googletest /usr/local/googletest
+RUN ldconfig
 
 ENV \
   PKG_CONFIG_PATH=/usr/local/psrdada/lib/pkgconfig:/usr/local/grpc/lib/pkgconfig:/usr/local/spdlog/lib/pkgconfig:/usr/local/googletest/lib/pkgconfig \
