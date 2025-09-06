@@ -74,10 +74,9 @@ FROM base AS base-runtime
 
 COPY ./images/psrchive/ska-pst-psrchive.conf /etc/ld.so.conf.d/
 
-RUN --mount=type=bind,from=base-builder,target=/builder \
-    cp -rd /builder${INST}/tempo2 ${INST}/tempo2 && \
-    cp -rd /builder${INST}/psrchive ${INST}/psrchive && \
-    ldconfig
+COPY --from=base-builder ${INST}/tempo2 ${INST}/tempo2
+COPY --from=base-builder ${INST}/psrchive ${INST}/psrchive
+RUN ldconfig
 
 # RUNTIME TEST
 RUN psrchive_config
