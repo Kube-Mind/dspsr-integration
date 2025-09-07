@@ -1,12 +1,12 @@
 [submodule "resources/psrchive"]
 	path = resources/psrchive
 	url = https://git.code.sf.net/p/psrchive/code.git
-	branch = master
+	branch = master-8-g008afa7
 [submodule "resources/dspsr"]
 	path = resources/dspsr
 	url = https://git.code.sf.net/p/dspsr/code.git
-	tag = 2025-07-16
+	tag = 2023-10-02-39-gbd5628afe
 [submodule "resources/psrdada"]
 	path = resources/psrdada
 	url = https://git.code.sf.net/p/psrdada/code.git
-	tag = 2024-12-02
+	tag = CVS-shutdown-1403-ge0693fbd
