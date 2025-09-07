@@ -8,7 +8,6 @@ ENV LD_LIBRARY_PATH=/usr/local/lib/
 ARG APT_DEPENDENCIES_PATH=/tmp/apt.txt
 # Copy installation payloads
 COPY ./images/psrchive-builder/apt.txt ${APT_DEPENDENCIES_PATH}
-COPY ./images/psrchive-builder/apt.txt /tmp/pip.txt
 COPY ./resources/psrdada /mnt/ska-pst-buildtools/resources/psrdada
 COPY ./images/psrchive-builder/ctest2junit.xsl /usr/local/share/ctest2junit/
 COPY ./images/psrchive-builder/ctest2junit /usr/local/bin/
@@ -69,12 +68,8 @@ FROM base AS base-runtime
 COPY ./images/psrchive-builder/pst-builder.conf /etc/ld.so.conf.d/
 
 # Install runtime dependencies, build artefacts
-# COPY --from=base-builder /builder/usr/local/psrdada /usr/local/psrdada
-# COPY --from=base-builder /builder/usr/local/googletest /usr/local/googletest
-RUN --mount=type=bind,from=base-builder,target=/builder \
-    cp -rd /builder/usr/local/psrdada /usr/local/psrdada \
-    && cp -rd /builder/usr/local/googletest /usr/local/googletest \
-    && ldconfig
+COPY --from=base-builder /usr/local/psrdada /usr/local/psrdada
+COPY --from=base-builder /usr/local/googletest /usr/local/googletest
 
 ENV \
   PKG_CONFIG_PATH=/usr/local/psrdada/lib/pkgconfig:/usr/local/grpc/lib/pkgconfig:/usr/local/spdlog/lib/pkgconfig:/usr/local/googletest/lib/pkgconfig \
