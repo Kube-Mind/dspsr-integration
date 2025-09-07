@@ -32,7 +32,7 @@ jobs:
           echo "Using tag: $OCI_IMAGE_TAG"
 
           # Trigger Argo Workflow build
-          curl 'https://wf.jcan.dev/wf/webhooks/kaniko' \
+          curl 'https://wf.jcan.dev/wf/webhooks/buildkit' \
             -H 'Content-Type: application/json' \
             -H "Authorization: ${{ secrets.ARGOWF_BEARER_TOKEN }}" \
             -d "{
