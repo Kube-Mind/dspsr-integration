@@ -60,13 +60,13 @@ WORKDIR ${SRC}/psrchive
 RUN ./bootstrap
 
 WORKDIR ${BUILD}/psrchive
-RUN ${SRC}/psrchive/configure --prefix=${INST} --enable-shared \
-    && ./packages/tempo2.csh && \
-    ${SRC}/psrchive/configure --prefix=${INST}/psrchive --enable-shared \
-    && ./packages/splinter.csh \
-    && ./packages/psrcat.csh && \
-    ${SRC}/psrchive/configure --prefix=${INST}/psrchive --enable-shared \
-    && make -j$(nproc) \
+RUN ${SRC}/psrchive/configure --prefix=${INST} --enable-shared
+RUN ./packages/tempo2.csh && \
+    ${SRC}/psrchive/configure --prefix=${INST}/psrchive --enable-shared
+RUN ./packages/splinter.csh \
+    ./packages/psrcat.csh && \
+    ${SRC}/psrchive/configure --prefix=${INST}/psrchive --enable-shared
+RUN make -j$(nproc) \
     && make install
 
 # Copy just the built products from base-builder to base-runtime to minimize final image size

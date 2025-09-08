@@ -44,6 +44,28 @@ RUN cmake /mnt/ska-pst-buildtools/resources/${PSRDADA} \
     && make -j$(nproc) install \
     && ldconfig
 
+ARG SPDLOG_VERSION=1.15.2
+ARG SPDLOG_RELEASE_URL=https://github.com/gabime/spdlog/archive/refs/tags/
+ARG SPDLOG_RELEASE_FILE=v${SPDLOG_VERSION}.tar.gz
+ARG SPDLOG_FILE_FOLDER=spdlog-${SPDLOG_VERSION}
+ARG SPDLOG=spdlog
+
+WORKDIR /mnt/${SPDLOG}
+RUN curl -L -O ${SPDLOG_RELEASE_URL}/${SPDLOG_RELEASE_FILE} \
+    && tar -xvf ${SPDLOG_RELEASE_FILE} \
+    && stat ${SPDLOG_FILE_FOLDER}
+
+WORKDIR /mnt/${SPDLOG}/${SPDLOG_FILE_FOLDER}
+COPY ./images/psrchive-builder/tweakme.h ./include/spdlog/tweakme.h
+
+WORKDIR /mnt/${SPDLOG}-build
+RUN cmake /mnt/${SPDLOG}/${SPDLOG_FILE_FOLDER} \
+      -DCMAKE_INSTALL_PREFIX=/usr/local/spdlog \
+      -DCMAKE_POSITION_INDEPENDENT_CODE=on \
+      -DSPDLOG_FMT_EXTERNAL=ON \
+    && make -j$(nproc) install \
+    && ldconfig
+
 ARG GOOGLETEST_VERSION=1.17.0
 ARG GOOGLETEST_RELEASE_URL=https://github.com/google/googletest/archive/refs/tags
 ARG GOOGLETEST_RELEASE_FILE=v${GOOGLETEST_VERSION}.tar.gz
@@ -70,6 +92,7 @@ COPY ./images/psrchive-builder/pst-builder.conf /etc/ld.so.conf.d/
 # Install runtime dependencies, build artefacts
 COPY --from=base-builder /usr/local/psrdada /usr/local/psrdada
 COPY --from=base-builder /usr/local/googletest /usr/local/googletest
+COPY --from=base-builder /usr/local/spdlog /usr/local/spdlog
 
 ENV \
   PKG_CONFIG_PATH=/usr/local/psrdada/lib/pkgconfig:/usr/local/grpc/lib/pkgconfig:/usr/local/spdlog/lib/pkgconfig:/usr/local/googletest/lib/pkgconfig \
